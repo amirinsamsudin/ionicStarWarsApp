@@ -35,6 +35,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../planets/planets.module#PlanetsPageModule'
+          },
+          {
+            path: ':id',
+            loadChildren: '../planet-details/planet-details.module#PlanetDetailsPageModule'
           }
         ]
       }

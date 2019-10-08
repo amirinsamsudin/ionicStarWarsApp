@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,12 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FilmDetailsPage implements OnInit {
 
-  filmId = null;
+  film: any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
-    this.filmId = this.activatedRoute.snapshot.paramMap.get('id');
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.api.getFilm(id).subscribe(res => {
+      this.film = res;
+    });
   }
 
 }

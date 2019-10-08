@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start" defaultHref="/tabs/planets">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ planet?.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-card *ngIf="planet">
+      <ion-label>Rotation Period:</ion-label>
+      <ion-card-content>
+        {{ planet.rotation_period }}
+      </ion-card-content>
+
+      <ion-label>Diameter:</ion-label>
+      <ion-card-content>
+        {{ planet.diameter }}
+      </ion-card-content>
+      
+    </ion-card>
+  
+  </ion-content>
