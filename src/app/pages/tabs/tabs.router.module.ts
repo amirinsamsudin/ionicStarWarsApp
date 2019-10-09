@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { FilmsPageModule } from '../films/films.module';
+import { FilmDetailsPageModule } from '../film-details/film-details.module';
+import { PeoplePageModule } from '../people/people.module';
+import { PlanetsPageModule } from '../planets/planets.module';
+import { PlanetDetailsPageModule } from '../planet-details/planet-details.module';
 
 const routes: Routes = [
   {
@@ -12,11 +17,13 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../films/films.module#FilmsPageModule'
+            loadChildren: () => FilmsPageModule
+            
           },
           {
             path: ':id',
-            loadChildren: '../film-details/film-details.module#FilmDetailsPageModule'
+            loadChildren: () => FilmDetailsPageModule
+            
           }
         ]
       },
@@ -25,7 +32,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../people/people.module#PeoplePageModule'
+            loadChildren: () => PeoplePageModule
+            
           }
         ]
       },
@@ -34,11 +42,13 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../planets/planets.module#PlanetsPageModule'
+            loadChildren: () => PlanetsPageModule
+            
           },
           {
             path: ':id',
-            loadChildren: '../planet-details/planet-details.module#PlanetDetailsPageModule'
+            loadChildren: () => PlanetDetailsPageModule
+            
           }
         ]
       }
